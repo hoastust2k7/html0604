@@ -1,1 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style/main.css">
+</head>
+<body>
+    <div>
+        <h1>array4</h1>
+        <script>
+            let a = [1, 2, 3];
+            console.log(a);
 
+            let b = a;
+            a.push(4);
+            console.log(b);
+        </script>
+    </div>
+    <div>
+        <h1>sclice</h1>
+        <script>
+            let c = [1, 2, 3];
+            let d = c.slice();
+            
+            c.push(4);
+            d.push(5);
+
+            console.log(c);
+            console.log(d);
+        </script>
+    </div>
+    <div>
+        <h1>pop, arraypop</h1>
+        <h2>JavaScript Arrays</h2>
+        <h3>The pop() Method</h3>
+        <p>The pop() method returns the value was "popped out": </p>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <script>
+            const fruits = ["Banana", "Orange", "Apple", "Mango"];
+            document.getElementById("demo1").innerHTML = fruits.pop();
+            document.getElementById("demo2").innerHTML = fruits;
+        </script>
+    </div>
+    <div>
+        <h1>query-Selector, innerElement</h1>
+        <p>蘋果</p>
+        <p class="js-p">鳳梨</p>
+        <p id="js-id">香蕉</p>
+      
+        <script>
+            const pElement = document.querySelector("p");
+            console.log(pElement.innerHTML);
+      
+            const classElement = document.querySelector(".js-p");
+            console.log(classElement.innerHTML);
+      
+            const idElement = document.querySelector("#js-id");
+            console.log(idElement.innerHTML);
+        </script>
+    </div>
+    <div>
+        <h1>事件的種類</h1>
+        <h3>事件處理的練習</h3>
+        <span class="btn" onmouseover="over(this); "onmouseout="out(this); "onmousedown="down(this); "onmouseup="up(this);">點我</span>
+          
+        <script>
+            function down(elem) {
+              elem.style.fontWeight = "bold";
+            }
+            
+            function over(elem) {
+              elem.style.backgroundColor = "#ddaaaa";
+            }
+            
+            function out(elem) {
+              elem.style.backgroundColor = "lightblue";
+            }
+            
+            function up(elem) {
+              elem.style.fontWeight = "normal";
+            }
+        </script>          
+    </div>
+    <div>
+        <h1>localStorage</h1>
+        <script>
+            localStorage.setItem("price", 1000);
+            const price = localStorage.getItem("price");
+            console.log(price);
+            console.log(typeof price);
+        </script>
+    </div>
+    <div>
+        <h1>作業練習(practice.html)</h1>
+        <button id="totalCartValue" onclick="totalCartBtn();">購物車總額</button>
+        <button onclick="clearCart();">清空購物車</button>
+
+        <p><img width="256px" src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*8MEKeje0zdSe37iOyvgnKw.png"></p>
+        <p> $969 <button onclick="addToCart1();">加入購物車</button></p>
+
+        <p><img width="256px" src="https://wp.housefeel.com.tw/wp-content/uploads/2023/01/230811%E6%B3%A1%E9%BA%B5%E7%B6%B2%E7%AB%99%E7%B8%AE%E5%9C%96-930x500-1.png"></p>
+        <p> $696 <button onclick="addToCart2();">加入購物車</button></p>
+        <script>
+            let totalCart = 0;
+
+            function totalCartBtn() {
+                document.getElementById("totalCartValue").innerHTML = "購物車總額：$" + totalCart;
+            }
+            
+            function clearCart() {
+                totalCart = 0;
+                localStorage.setItem("totalPriceValue", 0);
+                document.getElementById("totalCartValue").innerHTML = "購物車總額：$" + totalCart;
+            }
+            
+            function addToCart1() {
+                totalCart = totalCart + 969
+                localStorage.setItem("totalPriceValue", totalCart);
+                totalPriceValue = localStorage.getItem("totalPriceValue");
+                console.log(totalPriceValue);
+            }
+
+            function addToCart2() {
+                totalCart = totalCart + 696
+                localStorage.setItem("totalPriceValue", totalCart);
+                totalPriceValue = localStorage.getItem("totalPriceValue");
+                console.log(totalPriceValue);
+            }
+        </script>
+    </div>
+</body>
+</html>
